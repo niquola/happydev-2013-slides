@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>cLean Architecture (by nicola)</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+    <style>
+      .reveal pre {
+        box-shadow: none;
+      }
+      .gold {
+        color: gold;
+      }
+      p {
+        text-decoration: none;
+      }
+    </style>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+        <h1>cLean Architecutre</h1>
+        <p>
+        <small>Created by <a href="http://github.com/niquola">niquola</a> / <a href="http://twitter.com/niquola">@niquola</a></small>
+        <br/>
+        <small>hospital-systems/waveaccess</small>
+        <br/>
+        <small>2013</small>
+        </p>
+        </section>
+
+        <section>
+          <h3> Teamlead @ hospital-systems </h3>
+          <p>
+          <a href="http://github.com/niquola">github/niquola</a> /
+          <a href="http://twitter.com/niquola">@niquola</a>
+          </p>
+          <img src="niquola.jpg"/>
+        </section>
+
+        <section>
+          <h1>Ruby on Rails </h1>
+          <p>это прекрасный инструмент<br/> для быстрого создания веб-приложений!</p>
+        </section>
+
+        <section>
+          <section>
+            <h3>Взаимодействия с пользователем <br/>
+              через контоллер</h3>
+          </section>
+
+          <section>
+            <h3>Не сложная бизнес логика</h3>
+            <p>укладывается в моделях</p>
+            <p>и модель не лопнет при этом</p>
+          </section>
+
+          <section>
+            <h3>Не сложная предметная область</h3>
+            <p>Преждевременное моделирование не укусит</p>
+            <p>Моделировать сложно и исправлять модели болезненно</p>
+          </section>
+        </section>
+
+        <section>
+        <blockquote>
+          <p>All problems in computer science can be solved by
+          <span class="gold">another level of indirection</span>...
+          Except for the problem of too many layers of indirection.</p>
+        </blockquote>
+        <br/>
+        <h4>David Wheeler</h4>
+        </section>
+
+        <section>
+          <section>
+            <p>Выносим за скобки контроллеры и вьюхи</p>
+            <p>Создаем новый слой - Use Cases</p>
+            <p>Он будет координировать взаимодействие с пользователем</p>
+          </section>
+
+          <section>
+            <img src="CleanArchitecture.jpg"/>
+            <br/>
+            <a href="http://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html">by Uncle Bob</a>
+          </section>
+
+          <section>
+          <h1> System = Простой Ruby Object </h1>
+          <p>можно посылать сообщения комманды и запросы</p>
+          </section>
+        </section>
+
+        <section>
+          <h2>Incapsulation </h2>
+          <h2>скрыть грязные секреты</h2>
+        </section>
+
+        <section>
+          <h2>Behaviour Driven</h2>
+          <p>Важнее то как система себя <span class="gold">ведет</span>,
+          <br/> нежели то как она <span class="gold">устроена</span></p>
+        </section>
+
+        <section>
+          <h2>Use Case</h2>
+          <p>Последовательность <span class="gold">взаимодействий</span> с системой направленная на достижение цели</p>
+          <p>Взаимодействия с системой = вызов методов</p>
+        </section>
+
+        <section>
+           <pre>
+             <code>
+              system.identification_use_case.tap do |s|
+                confirmation_key = nil
+
+                s.listen :sign_up do |ev|
+                  confirmation_key = ev.confirmation_key
+                end
+
+                s.sign_up!(email, password)
+                s.confirm!(confirmation_key)
+
+                session_key = s.sign_in!(email, password)
+                s.session_active?(session_key).should be_true
+
+                s.sign_out!(session_key)
+              end
+             </code>
+           </pre>
+        </section>
+
+
+        <section>
+          <h3>TDD mantra:</h3>
+          <h3><span style="color:#faa;">Red</span>, <span style="color:#afa;">Green</span> and <span style="color: #aaf;">Refactor</span></h3>
+          <img src="deming.png"/>
+        </section>
+
+        <section>
+           <pre>
+             <code>
+              system.identification_use_case.tap do |s|
+                confirmation_key = nil
+
+                s.listen :sign_up do |ev|
+                  confirmation_key = ev.confirmation_key
+                end
+
+                s.sign_up!(email, password)
+                s.confirm!(confirmation_key)
+
+                session_key = s.sign_in!(email, password)
+                s.session_active?(session_key).should be_true
+
+                s.sign_out!(session_key)
+              end
+             </code>
+           </pre>
+        </section>
+
+        <section>
+        <blockquote>
+          <p><span class="gold">Преждевремменное моделирование</span> сложной предметной области</p>
+          <p>корень множества проблем</p>
+        </blockquote>
+        <br/>
+        <h4>niquola</h4>
+        </section>
+
+        <section>
+          <blockquote>
+            <p>good architecture <span class="gold">maximizes</span><br/>the number of decisions <span class="gold">not made</span>
+            </p>
+          </blockquote>
+          <br/>
+          <h4> Robert Martin (Uncle Bob)</h4>
+        </section>
+
+        <section>
+          <h2>Выпрямление</h2>
+          <h4>процесса разработки</h4>
+          <h4>Top-Down</h4>
+          <ul>
+            <li>User Story</li>
+            <li>Use Case in code</li>
+            <li>Prototype</li>
+            <li>Implementation</li>
+            <li>Refactoring</li>
+          </ul>
+        </section>
+
+       <section>
+         <p>Прототипирование</p>
+         <pre>
+           <code>
+            class IdentificationSystem
+              def sign_up(email, password)
+                emit :sign_up, users[email] = {
+                  email: email,
+                  password: password,
+                  confirmation_key: rand(100)
+                  status: :not_confirmed
+                }
+              end
+
+              def users
+                @users ||= {}
+              end
+            end
+           </code>
+         </pre>
+       </section>
+
+        <section>
+          <h2>Domain Driven Design?</h2>
+          <h4>вооружившись пониманием и тестами</h4>
+          <h3>Refactoring to deeper insight</h3>
+        </section>
+
+        <section>
+          <h3>Итого</h3>
+          <p> Мы свели интерфейс нашей системы к ruby объекту</p>
+          <p> Мы явно видим, что делает система</p>
+          <p> Мы можем повторно использовать его для разных интерфейсов</p>
+          <p> Мы можем легко сделать прототип</p>
+          <p> Мы можем покрыть его специфакацией/контрактом</p>
+          <p> Мы можем менять реализацию</p>
+        </section>
+
+        <section>
+          <p>Эти идеи в активной разработке</p>
+          <p>Интересуйтесь и подключайтесь!</p>
+          <a href="https://github.com/niquola/cLean-Architecture">join on github</a>
+        </section>
+
+        <section>
+          <p>Спасибо за внимание</p>
+          <p>Вопросы?</p>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+        { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+
+  </body>
+</html>

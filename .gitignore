@@ -5,3 +5,4 @@ tmp/**
 node_modules/
 .sass-cache*sw?
 *sw?
+*sw?

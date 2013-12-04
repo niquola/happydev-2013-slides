@@ -28,7 +28,12 @@ by lean manufacturing
 
 
 ### Modularity vs Monolitic
-#### Bounded Contexts & Aggregates
+
+### Bounded Contexts & Aggregates
+
+## Сложная предметная область?
+### Induction vs Deduction
+
 
 ### Behaviour Driven
 Важнее то как система себя ведет

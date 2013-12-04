@@ -1,257 +1,230 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
-    <title>Piter-United</title>
+    <title>happydev.2013 - cLean Architecture</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
 
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/night.css" id="theme">
+    <link rel="stylesheet" href="css/presentation.css">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
-
-    <!-- Custom styles for this template -->
-    <link href="stylesheets/index.css" rel="stylesheet">
-    <link href="stylesheets/carousel.css" rel="stylesheet">
   </head>
-  <!-- NAVBAR
-  ================================================== -->
-  <body ng-app="app">
-    
-    <div class="row dirtmargin">
 
-      <div class="col-md-8">
-        <a href="https://plus.google.com/events/c2bmi82chkel46o226jvpb8qijo" target="_blank">
-          <h1 class="title dirtmargin" >IT Global Meetup</h1>
-        </a>
-        <h2 class="subtitle dirtmargin">ИТ Сообщества Санкт-Петербурга</br>
-        в одном месте в одно время</h2>
-        <h2 class="place">
-          <a href="http://maps.google.com/maps?q=почтамтская+15&hl=ru&ie=UTF8&sll=59.924055,30.377541&sspn=0.154162,0.333023&t=h&hnear=Почтамтская+ул.,+15,+Санкт-Петербург,+город+Санкт-Петербург,+Россия&z=16&iwloc=A" target="_blank">
-          Почтамтская ул. 15
-          </a></br>
-        Начало в 18:00</h2>
+  <body>
+
+    <div class="reveal">
+      <div class="slides">
+        <section>
+        <h1>cLean Architecutre</h1>
+        <p>
+        <small>Created by <a href="http://github.com/niquola">niquola</a> / <a href="http://twitter.com/niquola">@niquola</a></small>
+        <br/>
+        <small>hospital-systems/waveaccess</small>
+        <br/>
+        <small>2013 <a href="http://2013.happydev.ru/speakers">happydev 2013</a></small>
+        </p>
+        </section>
+
+        <section>
+        <h3> Teamlead @ hospital-systems </h3>
+        <p>
+        <a href="http://github.com/niquola">github/niquola</a> /
+        <a href="http://twitter.com/niquola">@niquola</a>
+        </p>
+        <img src="niquola.jpg"/>
+        </section>
+
+        <section data-markdown>
+        <script type="text/template">
+          ## Что такое АРХИТЕКТУРА?
+        </script>
+        </section>
+
+        <section data-markdown>
+        <script type="text/template">
+          ## Архитектура
+          #### это принятые ключевые решения
+        </script>
+        </section>
+
+        <section data-markdown>
+        <script type="text/template">
+          ### Решение = компромис
+          #### Конфликтная природа инженерии
+          Евгений Кривошеев
+        </script>
+        </section>
+
+        <section data-markdown>
+        <script type="text/template">
+          ### Осознано ли?
+          #### Минимизирование боли
+        </script>
+        </section>
+
+        <section data-markdown>
+        <script type="text/template">
+          ### Часто забывают
+          ### можно не выбирать
+
+          by lean manufacturing
+        </script>
+        </section>
+
+        <section data-markdown>
+        <script type="text/template">
+          ### Механизм производящий ПО
+
+          ![alt text](semat.png)
+        </script>
+        </section>
+
+        <section data-markdown>
+        <script type="text/template">
+          ## System Thinking
+
+          > Design is taking things apart
+          > and then compose
+
+          [Rich Hickey](http://www.infoq.com/presentations/Design-Composition-Performance)
+        </script>
+        </section>
+
+        <section data-markdown>
+        <script type="text/template">
+          ## Modularity vs Monolitic
+
+          чем сложнее и больше система,
+
+          тем меньше и проще должны быть ее компоненты
+        </script>
+        </section>
+
+        <section data-markdown>
+        <script type="text/template">
+          ## Bounded Contexts & Aggregates
+          ![alt text](context-map.jpg)
+
+          [Domain Driven Design](http://www.infoq.com/author/Eric-Evans)
+        </script>
+        </section>
+
+        <section data-markdown>
+        <script type="text/template">
+          ## Сложная предметная область?
+
+          ### Induction vs Deduction
+
+          ![deduc](deduction.jpg)
+        </script>
+        </section>
+
+        <section>
+          <h2>Behaviour Driven</h2>
+          <p>Важнее то как система себя <span class="gold">ведет</span>,
+          <br/> нежели то как она <span class="gold">устроена</span></p>
+        </section>
+
+
+        <section data-markdown>
+        <script type="text/template">
+          ## Use Case
+          Последовательность взаимодействий с системой направленная на достижение цели
+
+          ![alt text](use-case.png)
+        </script>
+        </section>
+
+        <section>
+           <pre>
+             <code>
+              iam.tap do |s|
+                confirmation_key = nil
+
+                s.listen :sign_up do |ev|
+                  confirmation_key = ev.confirmation_key
+                end
+
+                s.sign_up!(email, password)
+                s.confirm!(confirmation_key)
+
+                session_key = s.sign_in!(email, password)
+                s.session_active?(session_key).should be_true
+
+                s.sign_out!(session_key)
+              end
+             </code>
+           </pre>
+        </section>
+
+        <section>
+          <h3>TDD mantra:</h3>
+          <h3><span style="color:#faa;">Red</span>, <span style="color:#afa;">Green</span> and <span style="color: #aaf;">Refactor</span></h3>
+          <img src="deming.png"/>
+        </section>
+
+        <section>
+        <blockquote>
+          <p><span class="gold">Преждевремменное моделирование</span> сложной предметной области</p>
+          <p>корень множества проблем</p>
+        </blockquote>
+        <br/>
+        <h4>niquola</h4>
+        </section>
+
+        <section>
+          <h3>Выпрямление</h3>
+          <ul>
+            <li>Use Case</li>
+            <li>Prototype</li>
+            <li>Specification</li>
+            <li>Implementation</li>
+            <li>Refactoring to deeper insight</li>
+          </ul>
+        </section>
+
+        <section data-markdown>
+        <script type="text/template">
+          > good architecture maximizes
+          > the number of decisions
+          > not made
+
+          Robert Martin (Uncle Bob)</h4>
+        </script>
+        </section>
+
+        <section data-markdown>
+        <script type="text/template">
+          ### Закон Конвея & Кайдзен
+          ![](kaizen.png)
+        </script>
+        </section>
       </div>
-      
-      <div class="col-md-2">
-        <h1 class="title">16 </br>
-        <p class="datetext">Декабря<p>
-        </h1>
-      </div>
-    
     </div>
 
-    
-    
-    <div class="row">
-      
-      <div class="col-md-offset-2 col-md-3 blue box">    
-        <a class="coltext" href="https://plus.google.com/u/0/communities/117927540789820622012" target="_blank">
-          <h2 class="dirtmargin">SPRUG</h2>
-          <p>Сообщество</br>
-          Ruby-программистов</p>
-        </a>
-      </div>
-
-      <div class="col-md-3 red box"> 
-        <a class="coltext" href="https://plus.google.com/u/0/communities/108809460896106613736?partnerid=gplp0" target="_blank">
-          <h2 class="dirtmargin">Smart Management</h2>
-          <p>Сообщество</br>
-          IT менеджеров</p>
-        </a>
-      </div>
-      
-      <div class="col-md-3 green box">
-        <a class="coltext" href="http://www.meetup.com/DevOps-40/" target="_blank">
-          <h2 class="dirtmargin">DevOps-40</h2>
-          <p>Сообщество</br>
-          DevOps</p>
-        </a>
-      </div>
-
-    </div>
-
-
-
-    <div class="row">
-
-      <div class="col-md-3 orange box">
-       <a class="coltext" href="https://plus.google.com/u/0/communities/112264824472767454602?partnerid=gplp0" target="_blank">
-          <h2 class="dirtmargin">AgilePiter</h2>
-          <p>Сообщество интересующихся гибкоми</br>
-          подходами к разработке</p>
-        </a>
-      </div>
-
-      <div class="col-md-3 purpur box">    
-        <a class="coltext" href="http://www.meetup.com/Golang-Peter/" target="_blank">
-          <h2 class="dirtmargin">Go</h2>
-          <p>Сообщество</br>
-          Go-программистов</p>
-        </a>
-      </div>
-      
-       <div class="col-md-3 orange box">    
-        <a class="coltext" href="http://sqagroup.spb.ru" target="_blank">
-          <h2 class="dirtmargin">SQA Group</h2>
-          <p>Сообщество</br>
-          тестировщиков</p>
-        </a>
-      </div>
-
-    </div>
-
-    
-
-    <div class="row">
-
-      <div class="col-md-3 redpurpur box">
-       <a class="coltext" href="https://plus.google.com/u/0/communities/109003572589840580141" target="_blank">
-          <h2 class="dirtmargin">AngularJS</h2>
-          <p>Сообщество</br>
-          любителей AngularJS</p>
-        </a>
-      </div>
-
-      <div class="col-md-3 blue box">    
-        <a class="coltext" href="http://vk.com/spb_analytics" target="_blank">
-          <h2 class="dirtmargin">CoA</h2>
-          <p>Сообщество</br>
-          аналитиков</p>
-        </a>
-      </div>
-      
-       <div class="col-md-3 green box">    
-        <a class="coltext" href="https://groups.google.com/forum/#!forum/erlang-russian" target="_blank">
-          <h2 class="dirtmargin">Erlang</h2>
-          <p>Сообщество</br>
-          Erlang-программистов</p>
-        </a>
-      </div>
-
-    </div>
-
-    
-    <div class="row">
-
-      <div class="col-md-3 purpur box">
-       <a class="coltext" href="http://lanyrd.com/2013/fprog-10/" target="_blank">
-          <h2 class="dirtmargin">FProg</h2>
-          <p>Сообщество</br>
-          функциональных</br>
-          программистов</p>
-        </a>
-      </div>
-
-      <div class="col-md-3 red dirt">    
-          <p>и другие...</p>
-      </div>
-      
-       <div class="col-md-3 dirt2">    
-        <a class="coltext" href="https://plus.google.com/communities/108851235934496354072" target="_blank">
-          <h2 class="dirtmargin">Piter United</h2>
-        </a>
-      </div>
-    
-    </div>
-
-
-    <style>
-
-      body {
-        padding: 4em 6em;
-        color: white;
-        background: #004763;
-      }
-      
-      .wrap {
-        width: 1400px; 
-        margin: 0 auto; 
-      }
-
-      h1.title {
-        font-size: 90px;
-      }
-
-      .datetext {
-        font-size: 0.3em;
-      }
-      
-      a {
-        color: white;
-        text-decoration: none;
-      }
-      a:hover {
-        color: white;
-      }
-      
-      p {
-        font-size: 18px;
-      }
-
-      .box {
-        padding: 20px 30px;
-        margin: 10px 10px 0 0;
-      }
-      .blue {
-        background-color: #4EB3B8;
-      }
-      .orange {
-        background-color: #DA532C;
-      }
-      .green {
-        background-color: #089045;
-      }
-      .purpur {
-        background-color: #624D9F;
-      }
-      .redpurpur {
-        background-color: #7C236C;
-      }
-      .red {
-        background-color: #BE1E4A; 
-      }
-      
-      .dirt {
-        margin: 10px 10px 0 0;
-        padding: 86px 30px;
-      }
-
-      .dirt2 {
-        margin: 10px 10px 0 0;
-        padding: 60px 110px;
-      }
-      
-      .dirtmargin
-      {
-        margin-bottom: 30px;
-      }
-
-    </style>
-  <!-- /.container -->
-
-
-  <!-- Bootstrap core JavaScript
-  ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="bower_components/jquery/jquery.min.js"></script>
-  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-  <script src="bower_components/angular/angular.min.js"></script>
-  <script src="app/main.js"></script>
-</body>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script src="js/slides.js"></script>
+  </body>
 </html>
-

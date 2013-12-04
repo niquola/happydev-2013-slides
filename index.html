@@ -15,7 +15,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link rel="stylesheet" href="css/reveal.min.css">
-    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/theme/night.css" id="theme">
+    <link rel="stylesheet" href="css/presentation.css">
 
     <!-- For syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -93,49 +94,35 @@
 
         <section data-markdown>
         <script type="text/template">
-          ## Гёдель, Курт
-        </script>
-        </section>
+          ### Механизм производящий ПО
 
-        <section data-markdown>
-        <script type="text/template">
-          ## Design is taking things apart and then compose - Rich Hickey
-
-          http://www.infoq.com/presentations/Design-Composition-Performance
-        </script>
-        </section>
-
-        <section data-markdown>
-        <script type="text/template">
-          ## Modularity vs Monolitic
-
-          #### The Tanenbaum-Torvalds Debate
+          ![alt text](semat.png)
         </script>
         </section>
 
         <section data-markdown>
         <script type="text/template">
           ## System Thinking
+
+          > Design is taking things apart
+          > and then compose
+
+          [Rich Hickey](http://www.infoq.com/presentations/Design-Composition-Performance)
         </script>
         </section>
 
         <section data-markdown>
         <script type="text/template">
-          ## Bounded Contexts
+          ## Modularity vs Monolitic
         </script>
         </section>
 
         <section data-markdown>
         <script type="text/template">
-          ## Aggregates
-        </script>
-        </section>
+          ## Bounded Contexts & Aggregates
+          ![alt text](context-map.jpg)
 
-        <section data-markdown>
-        <script type="text/template">
-          ## Induction vs Deduction
-
-          #### Model &  Use Cases
+          [Domain Driven Design](http://www.infoq.com/author/Eric-Evans)
         </script>
         </section>
 
@@ -145,10 +132,14 @@
           <br/> нежели то как она <span class="gold">устроена</span></p>
         </section>
 
-        <section>
-          <h2>Use Case</h2>
-          <p>Последовательность <span class="gold">взаимодействий</span> с системой направленная на достижение цели</p>
-          <p>Взаимодействия с системой = вызов методов</p>
+
+        <section data-markdown>
+        <script type="text/template">
+          ## Use Case
+          Последовательность взаимодействий с системой направленная на достижение цели
+
+          ![alt text](use-case.png)
+        </script>
         </section>
 
         <section>
@@ -180,28 +171,6 @@
         </section>
 
         <section>
-           <pre>
-             <code>
-              system.identification_use_case.tap do |s|
-                confirmation_key = nil
-
-                s.listen :sign_up do |ev|
-                  confirmation_key = ev.confirmation_key
-                end
-
-                s.sign_up!(email, password)
-                s.confirm!(confirmation_key)
-
-                session_key = s.sign_in!(email, password)
-                s.session_active?(session_key).should be_true
-
-                s.sign_out!(session_key)
-              end
-             </code>
-           </pre>
-        </section>
-
-        <section>
         <blockquote>
           <p><span class="gold">Преждевремменное моделирование</span> сложной предметной области</p>
           <p>корень множества проблем</p>
@@ -211,32 +180,23 @@
         </section>
 
         <section>
-          <blockquote>
-            <p>good architecture <span class="gold">maximizes</span><br/>the number of decisions <span class="gold">not made</span>
-            </p>
-          </blockquote>
-          <br/>
-          <h4> Robert Martin (Uncle Bob)</h4>
-        </section>
-
-        <section>
           <h3>Выпрямление</h3>
           <ul>
-            <li>User Story</li>
-            <li>Use Case in code</li>
+            <li>Use Case</li>
             <li>Prototype</li>
+            <li>Specification</li>
             <li>Implementation</li>
-            <li>Refactoring</li>
+            <li>Refactoring to deeper insight</li>
           </ul>
         </section>
 
         <section data-markdown>
         <script type="text/template">
-          * Интерфейс подсистемы - объекту
-          * Что делает система
-          * Прототипирование
-          * Специфакация/контракт
-          * Refactoring to deeper insight
+          > good architecture maximizes
+          > the number of decisions
+          > not made
+
+          Robert Martin (Uncle Bob)</h4>
         </script>
         </section>
 

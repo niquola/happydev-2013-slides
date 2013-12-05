@@ -147,8 +147,27 @@ Use Case -последовательность взаимодействий с �
 
 Почему бы не отобразить Use Case прямо в код?
 
-### Use Case в коде
+### Отображаем Use Case в код
 
+```ruby
+
+iam.tap do |s|
+  confirmation_key = nil
+
+  s.listen :sign_up do |ev|
+    confirmation_key = ev.confirmation_key
+  end
+
+  s.sign_up!(email, password)
+  s.confirm!(confirmation_key)
+
+  session_key = s.sign_in!(email, password)
+  s.session_active?(session_key).should be_true
+
+  s.sign_out!(session_key)
+end
+
+```
 
 ### Итак: Use Case Driven
 

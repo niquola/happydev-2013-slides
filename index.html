@@ -57,7 +57,7 @@
 
         <section data-markdown>
         <script type="text/template">
-          ## Что такое АРХИТЕКТУРА?
+          ## Что такое архитектура?
         </script>
         </section>
 
@@ -71,24 +71,33 @@
         <section data-markdown>
         <script type="text/template">
           ### Решение = компромис
-          #### Конфликтная природа инженерии
-          Евгений Кривошеев
+
+          >  Основная задача дизайна уменьшить боль, а не увеличить количество ништяков!
+          >  Нет хорошей или плохой архитектуры - она может быть обоснованной или нет!
+
+          [Евгений Кривошеев](http://jugru.timepad.ru/event/80808/)
         </script>
         </section>
 
         <section data-markdown>
         <script type="text/template">
-          ### Осознано ли?
-          #### Минимизирование боли
+          ## Диалектика
+
+          > Движение и развитие в природе, обществе и мышлении
+          > обусловлено раздвоением единого на взаимопроникающие противоположности
+          > и разрешением возникающих противоречий между ними через борьбу
         </script>
         </section>
 
         <section data-markdown>
         <script type="text/template">
-          ### Часто забывают
-          ### можно не выбирать
+          ### Часто забывают - можно не выбирать
 
-          by lean manufacturing
+          > good architecture maximizes
+          > the number of decisions
+          > not made
+
+          Robert Martin (Uncle Bob)</h4>
         </script>
         </section>
 
@@ -113,16 +122,6 @@
 
         <section data-markdown>
         <script type="text/template">
-          ## Modularity vs Monolitic
-
-          чем сложнее и больше система,
-
-          тем меньше и проще должны быть ее компоненты
-        </script>
-        </section>
-
-        <section data-markdown>
-        <script type="text/template">
           ## Bounded Contexts & Aggregates
           ![alt text](context-map.jpg)
 
@@ -134,18 +133,27 @@
         <script type="text/template">
           ## Сложная предметная область?
 
-          ### Induction vs Deduction
+          ###  ПРЕЖДЕВРЕММЕННОЕ МОДЕЛИРОВАНИЕ!
 
           ![deduc](deduction.jpg)
         </script>
         </section>
 
-        <section>
-          <h2>Behaviour Driven</h2>
-          <p>Важнее то как система себя <span class="gold">ведет</span>,
-          <br/> нежели то как она <span class="gold">устроена</span></p>
+        <section data-markdown>
+        <script type="text/template">
+          ## Behaviour Driven
+          Важнее то как система себя ведет (внешние требования)
+          нежели то как она устроена (внутренние требования)
+        </script>
         </section>
 
+        <section data-markdown>
+        <script type="text/template">
+          ## Top-Down & Bottom-Up
+          * Придумать модель и вывести приложение (скорость и магия, но большой риск)
+          * Вывести из приложения модель (низкий риск ошибки, но время и ресурсы)
+        </script>
+        </section>
 
         <section data-markdown>
         <script type="text/template">
@@ -178,39 +186,14 @@
            </pre>
         </section>
 
-        <section>
-          <h3>TDD mantra:</h3>
-          <h3><span style="color:#faa;">Red</span>, <span style="color:#afa;">Green</span> and <span style="color: #aaf;">Refactor</span></h3>
-          <img src="deming.png"/>
-        </section>
-
-        <section>
-        <blockquote>
-          <p><span class="gold">Преждевремменное моделирование</span> сложной предметной области</p>
-          <p>корень множества проблем</p>
-        </blockquote>
-        <br/>
-        <h4>niquola</h4>
-        </section>
-
-        <section>
-          <h3>Выпрямление</h3>
-          <ul>
-            <li>Use Case</li>
-            <li>Prototype</li>
-            <li>Specification</li>
-            <li>Implementation</li>
-            <li>Refactoring to deeper insight</li>
-          </ul>
-        </section>
-
         <section data-markdown>
         <script type="text/template">
-          > good architecture maximizes
-          > the number of decisions
-          > not made
-
-          Robert Martin (Uncle Bob)</h4>
+          ### Итак: Use Case Driven
+          * Use Case
+          * Prototype
+          * Specification
+          * Implementation
+          * Refactoring to deeper insight
         </script>
         </section>
 

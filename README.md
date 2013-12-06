@@ -8,7 +8,7 @@ My slides for [happydev.2013](http://2013.happydev.ru)
 
 [A. Jansen & J. Bosch](http://new.csd.uwo.ca/courses/CS4471b/secure/Additional%20Resources/020_Architectures.dir/1_WICSA_Confs/WICSA_2005_Pittsburgh/2005_papers/18500111.pdf)
 
-### Решение это часто компромис
+### Решение это часто компромисс
 
 Умные люди знают, любое решение имеет обратную сторону (tradeoff)
 
